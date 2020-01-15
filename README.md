@@ -1,10 +1,10 @@
-# are-we-learning-yet
+# are-we-in-space-yet
 
-**Rust is a systems programming language, but is it a machine learning language?**
+**Rust is a systems programming language that can work very well in hardware constrained environments. But is it running is space?**
 
-[arewelearningyet.com](http://arewelearningyet.com)
+[www.areweinspaceyet.org](http://www.areweinspaceyet.org)
 
-Inspired by [Are We Web Yet?](http://arewewebyet.org/), this project aims to catalog the the Rust ML ecosystem.
+Inspired by [Are We Learning Yet?](http://arewelearningyet.com/), this project aims to catalog rust usage in the aerospace industry.
 
 ## Contributing
 

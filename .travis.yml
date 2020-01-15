@@ -1,6 +1,6 @@
 language: ruby
 cache: bundler
-sudo: false
+os: linux
 
 script:
   - bundle install
@@ -9,9 +9,9 @@ script:
 
 deploy:
   provider: pages
+  token: $GITHUB_OAUTH_TOKEN
   skip_cleanup: true
-  github_token: $GITHUB_DEPLOY_TOKEN
   local_dir: '_site'
-  fqdn: areweinspaceyet.org
+  fqdn: www.areweinspaceyet.org
   on:
     branch: master
