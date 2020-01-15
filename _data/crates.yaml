@@ -1,0 +1,12 @@
+# Crates listed in this file are used to generate crates_generated.yaml
+#
+# Notes:
+# - Entries are alphabetical by crate name
+# - Any value listed in this file will take precendence over the value retrieved from crates.io or the GitHub API
+#     This is especially useful for writing more complete descriptions
+# - Crates not published to crates.io can be added by 'repository', but will lack some generated data
+# - Crates with non-Github repos are fine, but will currently lack some generated data
+# - Topics are defined are defined in the _topics directory; new topics require new topic pages
+
+- name: crate-name
+  topics: ["type"]
