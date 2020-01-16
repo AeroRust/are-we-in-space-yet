@@ -4,7 +4,7 @@ html {
 
 body {
     margin: 0px;
-    background-color: #fff;
+    background-color: #232323;
     min-height: 100%;
     color: $text-color;
     font-family: $base-font-family;
@@ -102,7 +102,7 @@ b, strong {
     padding-bottom: 60px;
     min-height: 360px;
     background-color: #333;
-    background-image:url('/images/North_Island_New_Zealand_as_seen_from_the_ISS.jpg');
+    background-image:url('/images/stars.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     color: #ccc;
@@ -145,6 +145,7 @@ b, strong {
 .section {
     padding-top: 60px;
     padding-bottom: 60px;
+    text-align: center;
 }
 
 .tiles {
