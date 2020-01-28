@@ -1,4 +1,4 @@
-# are-we-in-space-yet
+# are-we-in-space-yet [![Build Status](https://travis-ci.org/AeroRust/are-we-in-space-yet.svg?branch=master)](https://travis-ci.org/AeroRust/are-we-in-space-yet)
 
 **Rust is a systems programming language that can work very well in hardware constrained environments. But is it running is space?**
 
