@@ -4,3 +4,4 @@ _tmp
 .jekyll-metadata
 vendor
 .bundle
+.DS_Store
