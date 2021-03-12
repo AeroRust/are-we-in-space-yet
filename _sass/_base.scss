@@ -4,9 +4,11 @@ html {
 
 body {
     margin: 0px;
-    background-color: #232323;
+    // background-color: #232323;
+    background-color: white;
     min-height: 100%;
-    color: $text-color;
+    // color: $text-color;
+    color: #888;
     font-family: $base-font-family;
     font-size: 1.6em;
     font-weight: 300;
@@ -128,10 +130,62 @@ b, strong {
     font-size: 3.0rem;
     font-weight: bold;
     text-align: center;
-    line-height: 2.75rem;
+    line-height: 3rem;
     padding-top: 20px;
     padding-bottom: 40px;
 
+}
+
+.crate-description {
+    // letter-spacing: -0.10rem;
+    font-size: 1.3rem;
+    font-style: italic;
+    font-weight: 400;
+    padding-top: 0px;
+    padding-bottom: 20px;
+}
+
+.crate-type {
+    // letter-spacing: -0.12rem;
+    font-size: 1.3rem;
+    font-weight: 400;
+    padding-top: 0px;
+    padding-bottom: 40px;
+}
+
+.crate-socials {
+    float: right;
+    margin-right: 20px;
+}
+
+.crate-headline {
+    letter-spacing: -0.15rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 3rem;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.crate-card {
+    padding-top: 0px;
+    margin-bottom: 30px;
+    padding-left: 20px;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 2px 2px 5px  #c4c3c3;
+}
+
+.mt-mb-hd {
+    margin-top: 80px;
+    margin-bottom: 20px;
+    letter-spacing: -0.15rem;
+    font-size: 3.0rem;
+    font-weight: bold;
+    text-align: left;
+    line-height: 3rem;
+    padding-top: 20px;
+    padding-bottom: 40px;
 }
 
 .page-content {

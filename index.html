@@ -46,6 +46,9 @@ skip_tiles: [3,9]
       animation: octocat-wave 560ms ease-in-out
     }
   }
+  p{
+    text-align: left;
+  }
 </style>
 
 
@@ -73,9 +76,227 @@ skip_tiles: [3,9]
 
   <div class="container section">
     <div class="tldr-headline">
-      Coming soon !
+      It's ready for a fly-by,<br />
+      but the exosphere isn't very safe yet.
     </div>
 
-    <img src="images/ferris.gif" alt="ferris" style="width: 40%; margin: 0 auto;" />
+    <p>
+    Why Aerospace? Lately the Aerospace industry is picking up speed in comercialization with faster and rapid development, 
+    which is why we have created the AeroRust working group. This Working group is aiming to help push 
+    the Open-source community more into the growing Aerospace industry, by providing information, materials, tools, 
+    crates etc. to hobyists and the industry.<br /><br />
+    We are also, of course, aiming to grow the <a href="https://github.com/AeroRust/Welcome/blob/master/rust-lang.org">
+    Rust programming language</a> community by this effort and set it as a leading technology in the area.<br />
+    Why Rust? The Rust programming language is empowering everyone to build reliable and efficient software. The language 
+    is quite new, but it is already changing a lot of industries. Rust has many compelling features and benefits over 
+    other languages, nonetheless, it might not be the only language you need to choose for use.
+    </p>
+
+    <div class="mt-mb-hd">
+      AeroRust crates
+    </div>
+
+  <!------------- CRATE ------------>
+  <div class="crate-card"> 
+    <div class="crate-socials">
+      <a href="https://crates.io/crates/nmea" target="blank"><p>
+        <img height="60" src="https://res.cloudinary.com/adminixtrator/image/upload/v1615507315/LinkOpportunities.svg"></p>
+      </a>
+    </div>
+    <div class="crate-headline">NMEA</div>
+      <div class="crate-description">
+        NMEA 0183 sentence parser for Rust. Currently only GGA, GSV, GSA, VTG and RMC sentences are supported.
+      </div>
+    <div class="crate-socials">
+      <a href="https://github.com/AeroRust/nmea" target="blank">
+        <img height="35" src="https://res.cloudinary.com/adminixtrator/image/upload/v1615506786/GitHub-Mark-120px-plus.png">
+      </a>  
+      <a href="https://en.wikipedia.org/wiki/NMEA_0183" target="blank">
+        <img height="33" src="https://res.cloudinary.com/adminixtrator/image/upload/v1615493098/wikipedia-512.png">
+      </a>
+    </div>
+    <div class="crate-type"><i>Type:</i> &nbsp<span><b>parser + no_std</b></span></div>
+  </div>
+
+  <!------------- CRATE ------------>
+  <div class="crate-card"> 
+    <div class="crate-socials">
+      <a href="https://parrot.com" target="blank"><p>
+        <img height="60" src="https://res.cloudinary.com/adminixtrator/image/upload/v1615507315/LinkOpportunities.svg"></p>
+      </a>
+    </div>
+    <div class="crate-headline">arsdk-rs</div>
+      <div class="crate-description">
+        SDK (Software development kit) for <a href="https://parrot.com">parrot.com</a> drones
+      </div>
+    <div class="crate-socials">
+      <a href="https://github.com/AeroRust/arsdk-rs" target="blank">
+        <img height="35" src="https://res.cloudinary.com/adminixtrator/image/upload/v1615506786/GitHub-Mark-120px-plus.png">
+      </a>
+    </div>
+    <div class="crate-type"><i>Type:</i> &nbsp<span><b>SDK</b></span></div>
+  </div>
+
+  <!------------- CRATE ------------>
+  <div class="crate-card"> 
+    <div class="crate-headline">Splice</div>
+      <div class="crate-description">
+        Splice is a DSL (Domain-specific language) for Software-Defined Satellite Applications
+      </div>
+    <div class="crate-socials">
+      <a href="https://github.com/AeroRust/splice" target="blank">
+        <img height="35" src="https://res.cloudinary.com/adminixtrator/image/upload/v1615506786/GitHub-Mark-120px-plus.png">
+      </a>
+    </div>
+    <div class="crate-type"><i>Type:</i> &nbsp<span><b>DSL</b></span></div>
+  </div>
+
+  <!------------- CRATE ------------>
+  <div class="crate-card"> 
+    <div class="crate-socials">
+      <a href="https://crates.io/crates/yaiouom" target="blank"><p>
+        <img height="60" src="https://res.cloudinary.com/adminixtrator/image/upload/v1615507315/LinkOpportunities.svg"></p>
+      </a>
+    </div>
+    <div class="crate-headline">yaiouom</div>
+      <div class="crate-description">
+        Extensible, strongly-typed units of measure, with a custom type system (based on F#'s unit of measures) implemented as a linter.
+        This crate implements a mechanism of units of measure. It may be used to manipulate all sorts of measures, including 
+        physics/engineering (m, kg, s, A, m * s ^ 1, ...), currencies (EUR, USD, ...), statistics (dollars per barrel, engineers per 
+        lightbulb, dollars per household per year, ...)
+      </div>
+    <div class="crate-socials">
+      <a href="https://github.com/Yoric/yaiouom" target="blank">
+        <img height="35" src="https://res.cloudinary.com/adminixtrator/image/upload/v1615506786/GitHub-Mark-120px-plus.png">
+      </a>
+    </div>
+    <div class="crate-type"><i>Type:</i> &nbsp<span><b>?</b></span></div>
+  </div>
+
+  <!------------- CRATE ------------>
+  <div class="crate-card"> 
+    <div class="crate-socials">
+      <a href="https://crates.io/crates/labrador-ldpc" target="blank"><p>
+        <img height="60" src="https://res.cloudinary.com/adminixtrator/image/upload/v1615507315/LinkOpportunities.svg"></p>
+      </a>
+    </div>
+    <div class="crate-headline">Labrador-LDPC</div>
+      <div class="crate-description">
+        A crate for encoding and decoding low-density parity check (LDPC) error correcting codes.
+      </div>
+    <div class="crate-socials">
+      <a href="https://github.com/adamgreig/labrador-ldpc" target="blank">
+        <img height="35" src="https://res.cloudinary.com/adminixtrator/image/upload/v1615506786/GitHub-Mark-120px-plus.png">
+      </a>
+    </div>
+    <div class="crate-type"><i>Type:</i> &nbsp<span><b>no_std only</b></span></div>
+  </div>
+
+  <!------------- CRATE ------------>
+  <div class="crate-card"> 
+    <div class="crate-socials">
+      <a href="https://crates.io/crates/ccsds_primary_header" target="blank"><p>
+        <img height="60" src="https://res.cloudinary.com/adminixtrator/image/upload/v1615507315/LinkOpportunities.svg"></p>
+      </a>
+    </div>
+    <div class="crate-headline">CCSDS Primary Header</div>
+      <div class="crate-description">
+        This crate contains an implementation of the CCSDS standard called Space Packet Protocol, which defines a packet header called the CCSDS Primary Header.
+      </div>
+    <div class="crate-socials">
+      <a href="github.com/nsmryan/ccsds_primary_header" target="blank">
+        <img height="35" src="https://res.cloudinary.com/adminixtrator/image/upload/v1615506786/GitHub-Mark-120px-plus.png">
+      </a>
+    </div>
+    <div class="crate-type"><i>Type:</i> &nbsp<span><b>?</b></span></div>
+  </div>
+
+  <!------------- CRATE ------------>
+  <div class="crate-card"> 
+    <div class="crate-socials">
+      <a href="https://crates.io/crates/nyx-space" target="blank"><p>
+        <img height="60" src="https://res.cloudinary.com/adminixtrator/image/upload/v1615507315/LinkOpportunities.svg"></p>
+      </a>
+    </div>
+    <div class="crate-headline">NYX</div>
+      <div class="crate-description">
+        Nyx is a high fidelity, fast, reliable and validated astrodynamical toolkit library written in Rust.
+        The target audience is researchers and astrodynamics engineers. The rationale for using Rust is to allow for very fast computations, guaranteed thread safety, 
+        and portability to all platforms supported by Rust.
+      </div>
+    <div class="crate-socials">
+      <a href="https://gitlab.com/chrisrabotin/nyx" target="blank">
+        <img height="35" src="https://res.cloudinary.com/adminixtrator/image/upload/v1615506786/GitHub-Mark-120px-plus.png">
+      </a>
+    </div>
+    <div class="crate-type"><i>Type:</i> &nbsp<span><b>?</b></span></div>
+  </div>
+
+  <!------------- CRATE ------------>
+  <div class="crate-card"> 
+    <div class="crate-socials">
+      <a href="https://crates.io/crates/yanp" target="blank"><p>
+        <img height="60" src="https://res.cloudinary.com/adminixtrator/image/upload/v1615507315/LinkOpportunities.svg"></p>
+      </a>
+    </div>
+    <div class="crate-headline">YANP</div>
+      <div class="crate-description">
+        YANP - Yet Another NMEA Parser.
+        A no_std Rust NMEA 0183 sentence parser.
+      </div>
+    <div class="crate-socials">
+      <a href="https://github.com/hargoniX/yanp" target="blank">
+        <img height="35" src="https://res.cloudinary.com/adminixtrator/image/upload/v1615506786/GitHub-Mark-120px-plus.png">
+      </a>
+    </div>
+    <div class="crate-type"><i>Type:</i> &nbsp<span><b>parser + no_std</b></span></div>
+  </div>
+
+  <!------------- CRATE ------------>
+  <div class="crate-card"> 
+    <div class="crate-socials">
+      <a href="https://crates.io/crates/bp7" target="blank"><p>
+        <img height="60" src="https://res.cloudinary.com/adminixtrator/image/upload/v1615507315/LinkOpportunities.svg"></p>
+      </a>
+    </div>
+    <div class="crate-headline">BP7</div>
+      <div class="crate-description">
+        Bundle Protocol 7 encoding/decoding library.
+        A portable Work-In-Progress <a href="https://github.com/dtn7/bp7-rs">implementation</a> of the upcoming delay-tolerant 
+        networking <a href="https://tools.ietf.org/html/draft-ietf-dtn-bpbis-24">Bundle Protocol</a>. Support for DTN 
+        (Delay-Tolerant Network) as well as IPN (InterPlanetary Network) addressing, custom canonical blocks and restricted 
+        environments such as wasm.
+      </div>
+    <div class="crate-socials">
+      <a href="https://github.com/dtn7/bp7-rs" target="blank">
+        <img height="35" src="https://res.cloudinary.com/adminixtrator/image/upload/v1615506786/GitHub-Mark-120px-plus.png">
+      </a>
+    </div>
+    <div class="crate-type"><i>Type:</i> &nbsp<span><b>?</b></span></div>
+  </div>
+
+  <!------------- CRATE ------------>
+  <div class="crate-card"> 
+    <div class="crate-socials">
+      <a href="https://crates.io/crates/dtn7" target="blank"><p>
+        <img height="60" src="https://res.cloudinary.com/adminixtrator/image/upload/v1615507315/LinkOpportunities.svg"></p>
+      </a>
+    </div>
+    <div class="crate-headline">DTN7</div>
+      <div class="crate-description">
+        Delay-tolerant Networking Daemon and CLI tools.
+        A Work-In-Progress <a href="https://github.com/dtn7/dtn7-rs">implementation</a> of the upcoming 
+        delay-tolerant networking <a href="https://tools.ietf.org/html/draft-ietf-dtn-bpbis-24">standard</a>. This crate 
+        uses BP7 to provide a dtn daemon (with routing, convergence layers, etc) and command line tools.
+      </div>
+    <div class="crate-socials">
+      <a href="https://github.com/dtn7/dtn7-rs" target="blank">
+        <img height="35" src="https://res.cloudinary.com/adminixtrator/image/upload/v1615506786/GitHub-Mark-120px-plus.png">
+      </a>
+    </div>
+    <div class="crate-type"><i>Type:</i> &nbsp<span><b>?</b></span></div>
+  </div>
+
+    {% comment %} <img src="images/ferris.gif" alt="ferris" style="width: 40%; margin: 0 auto;" /> {% endcomment %}
   </div>
 </div>
