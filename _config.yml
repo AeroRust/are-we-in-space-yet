@@ -1,9 +1,9 @@
 # Site settings
 title: Are we in space yet?
-email: anowell@gmail.com
+email: aerospace.rust@gmail.com
 description: >
   This page tries to collect (pun intended) the state of rust in the aerospace industry.
-  It tries to catalog the available crates and ongoing effort to run Rust in the air and in space.
+  It tries to catalog the available crates and ongoing effort to use Rust in aerospace.
 baseurl: "" # the subpath of the site, e.g. /blog
 url: "http://areweinspaceyet.org"
 
