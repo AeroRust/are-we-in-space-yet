@@ -10,23 +10,43 @@ layout: default
   <div class="post-content">
     {{ content }}
   </div>
-
+  <hr>
   {% assign crates = site.data.crates_generated | where_exp:"item", "item.topics contains page.crate_tag" | sort: 'score' | reverse %}
   {% for crate in crates %}
-    <div>
-      <hr>
-      <h3>
-        {%if crate.name %}{{crate.name}}{% else %}{{crate.github}}{% endif %}
-        <span style="font-size: small; vertical-align:middle;">
+
+    <!------------- CRATE ------------>
+    <div class="crate-card"> 
+      <div class="crate-socials">
+        {% if crate.name %}<a href="https://crates.io/crates/{{crate.name}}" target="blank"><p>
+          <img height="60" src="https://res.cloudinary.com/adminixtrator/image/upload/v1615507315/LinkOpportunities.svg"></p>
+        </a>{% endif %}
+      </div>
+      <div class="crate-headline">{%if crate.name %}{{crate.name}}{% else %}{{crate.github}}{% endif %}
+        <span style="font-size: small; letter-spacing: 1px; vertical-align:middle;">
           [
-          {%if crate.name %}<a href="https://crates.io/crates/{{crate.name}}">crate</a> &middot;{% endif %}
           {%if crate.repository %}<a href="{{crate.repository}}">repo</a> &middot;{% endif %}
           {%if crate.documentation %}<a href="{{crate.documentation}}">docs</a>{% endif %}
           ]
         </span>
-      </h3>
+      </div>
+        <div class="crate-description">
+          {%if crate.description %}{{crate.description}}{% endif %}
+        </div>
+      <div class="crate-socials" style="margin-top: 40px;">
+        {%if crate.github %}
+        <a href="https://github.com/{{crate.github}}" target="blank">
+          <img height="35" src="https://res.cloudinary.com/adminixtrator/image/upload/v1623328689/GitHub-Mark-Light-120px-plus.png">
+        </a>
+        {% endif %}
+        {%if crate.wiki %}
+        <a href="https://en.wikipedia.org/wiki/{{crate.wiki}}" target="blank">
+          <img height="33" src="https://res.cloudinary.com/adminixtrator/image/upload/v1623328840/icons8-wikipedia-144.png">
+        </a>
+        {% endif %}
+      </div>
+      <div class="crate-type"><i>Type:</i> &nbsp<span><b>{% if crate.type %}{{crate.type}}{% else %}?{% endif %}</b></span></div>
 
-      <div style="line-height:1;">
+      <div class="crate-details">
         {%if crate.name %}
           <img src="https://img.shields.io/crates/v/{{crate.name}}.svg?maxAge=2592000">
           <img src="https://img.shields.io/crates/d/{{crate.name}}.svg?maxAge=2592000">
@@ -36,26 +56,8 @@ layout: default
           <img src="https://img.shields.io/github/stars/{{crate.github}}.svg?style=social&amp;label=Star&amp;maxAge=2592000">
         {% endif %}
       </div>
-
-      <p>{{crate.description}}</p>
-
-      <div style="font-size: small;">
-
-        {%if crate.license %}
-          <span class="crate-stat"><b>License</b>: {{crate.license}}</span>
-        {% endif %}
-        {%if crate.github %}
-          <span class="crate-stat"><b>Last Commit</b>: {{crate.last_commit | date: "%d %b %Y"}}</span>
-        {% endif %}
-        {%if crate.name %}
-          <span class="crate-stat"><b>Last Published</b>: {{crate.updated_at | date: "%d %b %Y"}}</span>
-        {% endif %}
-        {%if crate.github %}
-          <span class="crate-stat"><b>Contributors</b>: {{crate.contributor_count}}</span>
-          <span class="crate-stat"><b>Open Issues</b>: {{crate.open_issues_count}}</span>
-        {% endif %}
-      </div>
     </div>
+
   {% endfor %}
 
   <div class="followup">
