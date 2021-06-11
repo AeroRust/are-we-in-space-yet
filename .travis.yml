@@ -9,7 +9,7 @@ script:
 
 deploy:
   provider: pages
-  token: $GITHUB_OAUTH_TOKEN
+  github_token: $GITHUB_TOKEN
   skip_cleanup: true
   local_dir: '_site'
   fqdn: www.areweinspaceyet.org
