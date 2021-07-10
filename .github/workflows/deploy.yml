@@ -1,7 +1,7 @@
 name: Deploy Jekyll on gh-pages CI
 
 on:
-  push
+  push:
     branches:
     - main
 
