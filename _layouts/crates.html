@@ -16,25 +16,36 @@ layout: default
 
     <!------------- CRATE ------------>
     <div class="crate-card"> 
-      <div class="crate-socials">
-        {% if crate.name %}
-        <a href="https://crates.io/crates/{{crate.name}}" target="blank"><p>
-          <img height="60" src="/images/social-link.svg"></p>
-        </a>
-        {% endif %}
-      </div>
-      <div class="crate-headline">{%if crate.name %}{{crate.name}}{% else %}{{crate.github}}{% endif %}
-        <span style="font-size: small; letter-spacing: 1px; vertical-align:middle;">
-          [
-          {%if crate.repository %}<a href="{{crate.repository}}">repo</a> &middot;{% endif %}
-          {%if crate.documentation %}<a href="{{crate.documentation}}">docs</a>{% endif %}
-          ]
-        </span>
+      <div class="crate-headline">
+          {%if crate.name %}{{crate.name}}{% else %}{{crate.github}}{% endif %}
+          <span style="font-size: small; letter-spacing: 1px; vertical-align:middle;">
+            [
+            {%if crate.repository %}<a href="{{crate.repository}}">repo</a> &middot;{% endif %}
+            {%if crate.documentation %}<a href="{{crate.documentation}}">docs</a>{% endif %}
+            ]
+          </span>
+        <div class="crate-socials">
+          {% if crate.name %}
+          <a href="https://crates.io/crates/{{crate.name}}" target="blank">
+            <img height="35" src="https://raw.githubusercontent.com/rust-lang/crates.io/4cc3b0adf39d55fb166849875f6c764789787a38/public/cargo.png">
+          </a>
+          {% endif %}
+          {%if crate.github %}
+          <a href="https://github.com/{{crate.github}}" target="blank">
+            <img height="35" src="/images/github.png">
+          </a>
+          {% endif %}
+          {%if crate.wiki %}
+          <a href="https://en.wikipedia.org/wiki/{{crate.wiki}}" target="blank">
+            <img height="33" src="/images/wikipedia.png">
+          </a>
+          {% endif %}
+        </div>
       </div>
       <div class="crate-details">
         {%if crate.documentation and crate.name %}
         <a href="{{crate.documentation}}">
-          <img alt="docs.rs" src="https://img.shields.io/docsrs/{{crate.name}}/{%if crate.max_version %}{{crate.max_version}}{%endif%}">
+          <img alt="docs.rs" src="https://img.shields.io/docsrs/{{crate.name}}{%if crate.max_version %}/{{crate.max_version}}{%endif%}">
         </a>
         {% endif %}
         {%if crate.name %}
@@ -56,18 +67,6 @@ layout: default
       </div>
       <div class="crate-description">
         {%if crate.description %}{{crate.description}}{% endif %}
-      </div>
-      <div class="crate-socials" style="margin-top: 40px;">
-        {%if crate.github %}
-        <a href="https://github.com/{{crate.github}}" target="blank">
-          <img height="35" src="/images/github.png">
-        </a>
-        {% endif %}
-        {%if crate.wiki %}
-        <a href="https://en.wikipedia.org/wiki/{{crate.wiki}}" target="blank">
-          <img height="33" src="/images/wikipedia.png">
-        </a>
-        {% endif %}
       </div>
     </div>
 
