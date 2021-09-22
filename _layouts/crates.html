@@ -17,9 +17,11 @@ layout: default
     <!------------- CRATE ------------>
     <div class="crate-card"> 
       <div class="crate-socials">
-        {% if crate.name %}<a href="https://crates.io/crates/{{crate.name}}" target="blank"><p>
-          <img height="60" src="https://res.cloudinary.com/adminixtrator/image/upload/v1615507315/LinkOpportunities.svg"></p>
-        </a>{% endif %}
+        {% if crate.name %}
+        <a href="https://crates.io/crates/{{crate.name}}" target="blank"><p>
+          <img height="60" src="/images/social-link.svg"></p>
+        </a>
+        {% endif %}
       </div>
       <div class="crate-headline">{%if crate.name %}{{crate.name}}{% else %}{{crate.github}}{% endif %}
         <span style="font-size: small; letter-spacing: 1px; vertical-align:middle;">
@@ -29,31 +31,42 @@ layout: default
           ]
         </span>
       </div>
-        <div class="crate-description">
-          {%if crate.description %}{{crate.description}}{% endif %}
-        </div>
+      <div class="crate-details">
+        {%if crate.documentation and crate.name %}
+        <a href="{{crate.documentation}}">
+          <img alt="docs.rs" src="https://img.shields.io/docsrs/{{crate.name}}/{%if crate.max_version %}{{crate.max_version}}{%endif%}">
+        </a>
+        {% endif %}
+        {%if crate.name %}
+          <a href="https://crates.io/crates/{{crate.name}}" target="blank">
+            <img src="https://img.shields.io/crates/v/{{crate.name}}.svg?maxAge=2592000">
+          </a>
+          <a href="https://crates.io/crates/{{crate.name}}" target="blank">
+            <img src="https://img.shields.io/crates/d/{{crate.name}}.svg?maxAge=2592000">
+          </a>
+          <a href="https://crates.io/crates/{{crate.name}}" target="blank">
+            <img src="https://img.shields.io/crates/dr/{{crate.name}}.svg?maxAge=2592000">
+          </a>
+        {% endif %}
+        {%if crate.github %}
+          <a href="https://github.com/{{crate.github}}" target="blank">
+            <img src="https://img.shields.io/github/stars/{{crate.github}}.svg?style=social&amp;label=Star&amp;maxAge=2592000">
+          </a>
+        {% endif %}
+      </div>
+      <div class="crate-description">
+        {%if crate.description %}{{crate.description}}{% endif %}
+      </div>
       <div class="crate-socials" style="margin-top: 40px;">
         {%if crate.github %}
         <a href="https://github.com/{{crate.github}}" target="blank">
-          <img height="35" src="https://res.cloudinary.com/adminixtrator/image/upload/v1623328689/GitHub-Mark-Light-120px-plus.png">
+          <img height="35" src="/images/github.png">
         </a>
         {% endif %}
         {%if crate.wiki %}
         <a href="https://en.wikipedia.org/wiki/{{crate.wiki}}" target="blank">
-          <img height="33" src="https://res.cloudinary.com/adminixtrator/image/upload/v1623328840/icons8-wikipedia-144.png">
+          <img height="33" src="/images/wikipedia.png">
         </a>
-        {% endif %}
-      </div>
-      <div class="crate-type"><i>Type:</i> &nbsp<span><b>{% if crate.type %}{{crate.type}}{% else %}?{% endif %}</b></span></div>
-
-      <div class="crate-details">
-        {%if crate.name %}
-          <img src="https://img.shields.io/crates/v/{{crate.name}}.svg?maxAge=2592000">
-          <img src="https://img.shields.io/crates/d/{{crate.name}}.svg?maxAge=2592000">
-          <img src="https://img.shields.io/crates/dr/{{crate.name}}.svg?maxAge=2592000">
-        {% endif %}
-        {%if crate.github %}
-          <img src="https://img.shields.io/github/stars/{{crate.github}}.svg?style=social&amp;label=Star&amp;maxAge=2592000">
         {% endif %}
       </div>
     </div>
@@ -68,7 +81,7 @@ layout: default
     or a PR.
     <br>
     Looking for something you didn't find? Try asking on the
-    <a href='https://discord.gg/Xd98GjuEhu'>AeroRust's Discord server</a>.
+    <a href='https://discord.gg/6wFvsFWfnu'>AeroRust's Discord server</a>.
   </div>
 
 
