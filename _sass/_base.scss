@@ -143,10 +143,9 @@ html {
   .crate-description {
     // letter-spacing: -0.10rem;
     font-size: 1rem;
-    font-style: italic;
     font-weight: 400;
     padding-top: 0px;
-    padding-bottom: 20px;
+    // padding-bottom: 20px;
 }
 
 .crate-type {
@@ -163,7 +162,7 @@ html {
 
 .crate-socials {
     float: right;
-    margin-right: 10px;
+    margin-right: 20px;
 }
 
 .crate-headline {
@@ -176,14 +175,11 @@ html {
 }
 
 .crate-card {
-    padding-top: 0px;
-    margin-top: 20px;
+    padding: 0px 20px 10px 20px; 
+    margin-top: 30px;
     margin-bottom: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-radius: 10px;
     text-align: left;
-    box-shadow: 2px 2px 2px  #888888;
+    border-bottom: 1px solid #ccc;
 }
 
 .mt-mb-hd {
@@ -263,6 +259,7 @@ html {
       margin-bottom: 20px;
       text-align: center;
       padding: 20px 0;
+      font-size: 1rem;
       border: 2px solid orange; /* TODO: using colors by name is basically never good design */
   }
   
