@@ -68,6 +68,11 @@
   github: nsmryan/ccsds_primary_header
   topics: ["protocol"]
 
+- name: ccsds_spacepacket
+  description: A memory-safe implementation of the Primary Header from the CCSDS Space Packet Protocol based on KubOS's implementation.
+  github: KubOS-Preservation-Group/ccsds-spacepacket
+  topics: ["protocol"]
+
 
 # <------------------------- Parsers ------------------------>
 - name: YANP
