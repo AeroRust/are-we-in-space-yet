@@ -50,6 +50,12 @@
 
 
 # <------------------- Protocol ------------------------>
+- name: adsb_deku
+  repository: https://github.com/wcampbell0x2a/adsb_deku
+  description: Decoder for <a href="https://en.wikipedia.org/wiki/Automatic_Dependent_Surveillance%E2%80%93Broadcast">ADS-B</a> Downlink Format protocol. Features tui applications for the display of the decoded aeroplanes location data.
+  github: wcampbell0x2a/adsb_deku
+  topics: ["protocol"]
+
 - name: bp7
   repository: https://github.com/dtn7/bp7-rs
   description: Bundle Protocol 7 encoding/decoding library.<br /><br />A portable Work-In-Progress <a href="https://github.com/dtn7/bp7-rs">implementation</a> of the upcoming delay-tolerant networking <a href="https://tools.ietf.org/html/draft-ietf-dtn-bpbis-24">Bundle Protocol</a>. Support for DTN (Delay-Tolerant Network) as well as IPN (InterPlanetary Network) addressing, custom canonical blocks and restricted environments such as wasm.
