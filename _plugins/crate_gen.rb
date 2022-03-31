@@ -27,12 +27,12 @@ module Jekyll
     def generate_crate_data(crates)
       puts "WARNING: GITHUB_OAUTH_TOKEN not set - you may get rate-limited by GitHub" unless GH_OAUTH_TOKEN
       crates.map do |crate|
-        unless crate['name'] || crate['repository']
+        unless crate['name'] || crate['github']
           puts "ERROR: crate entry is invalid: #{crate}"
           exit 1
         end
 
-        puts "Processing #{crate['name'] || crate['repository']}"
+        puts "Processing #{crate['name'] || crate['github']}"
 
         # Get data from the Crates.io API
         if crate['name']
@@ -44,8 +44,7 @@ module Jekyll
 
 
         # Get data from the GitHub API
-        matches = crate['repository']&.match(/github.com\/([^\.\/]+\/[^\.\/]+)/)
-        repo = matches[1] if matches
+        repo = crate['github']
         if repo
           repo_data = get_repo_data(repo)
           crate = repo_data.merge(crate)
