@@ -104,6 +104,8 @@ module Jekyll
         return {}
       end
 
+      headers["User-Agent"] = "areweinspaceyet crate listing https://github.com/AeroRust/are-we-in-space-yet"
+
       dir = url.sub(/^https?:\/\//, File.join(__dir__, "../_tmp/"))
       path = File.join(dir, "index.json")
       FileUtils.mkdir_p(dir)
