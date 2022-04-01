@@ -46,7 +46,7 @@ module Jekyll
         # Get data from the GitHub API
         repo = crate['github']
         if repo
-          repo_data = get_repo_data(repo)
+          repo_data = get_github_data(repo)
           crate = repo_data.merge(crate)
           crate['github'] = repo
         else
@@ -133,7 +133,7 @@ module Jekyll
     end
 
     # Fetch stats and other interesting data from the GitHub API
-    def get_repo_data(repo)
+    def get_github_data(repo)
       headers = {'Authorization': "token #{GH_OAUTH_TOKEN}"} if GH_OAUTH_TOKEN
       data = cached_request("https://api.github.com/repos/#{repo}", headers)
       unless data.empty?
