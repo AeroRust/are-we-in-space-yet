@@ -131,6 +131,26 @@ module Jekyll
       end
       JSON.parse(File.read(path))
     end
+    
+    # Fetch stats and other interesting data from the GitHub API
+    def get_gitlab_data(repo)
+      # headers = {'Authorization': "token #{GH_OAUTH_TOKEN}"} if GH_OAUTH_TOKEN
+      data = cached_request("https://gitlab.com/api/v4/projects/#{URI.encode(repo)}")
+
+      out = {}
+      out['stargazers_count'] = data['star_count']
+      # %w(star_count ).each do |k|
+      #   out[k] = data[k]
+      # end
+      last_activity_at = data['last_activity_at'] #commit&.dig('commit', 'committer', 'date')
+      if last_activity_at
+          out['last_commit'] = Time.parse(last_activity_at)
+      end
+      # out['contributor_count'] = contributors&.length
+      out.delete_if { |k,v| v.nil? }
+    end
+
+
 
     # Fetch stats and other interesting data from the GitHub API
     def get_github_data(repo)
