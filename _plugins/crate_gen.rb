@@ -52,9 +52,10 @@ module Jekyll
         repo_data = {}
         if repo_type == "github"
           repo_data = get_github_data(repo)
-          # crate['github'] = repo
+          crate['repository']['url'] = "https://github.com/" + repo
         elsif repo_type == "gitlab"
           repo_data = get_gitlab_data(repo)
+          crate['repository']['url'] = "https://gitlab.com/" + repo
         else
           puts "WARNING: No repository specified for crate #{crate['name']}"
         end
