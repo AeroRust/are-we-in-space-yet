@@ -139,7 +139,8 @@ module Jekyll
     
     # Fetch stats and other interesting data from the GitHub API
     def get_gitlab_data(repo)
-      headers = {'PRIVATE-TOKEN': "token #{GITLAB_TOKEN}"} if GITLAB_TOKEN
+      headers = {}
+      headers = {'PRIVATE-TOKEN': "#{GITLAB_TOKEN}"} if GITLAB_TOKEN
       data = cached_request("https://gitlab.com/api/v4/projects/#{CGI.escape(repo)}", headers)
 
       out = {}
@@ -165,7 +166,8 @@ module Jekyll
 
     # Fetch stats and other interesting data from the GitHub API
     def get_github_data(repo)
-      headers = {'Authorization': "token #{GH_OAUTH_TOKEN}"} if GH_OAUTH_TOKEN
+      headers = {}
+      headers = {'Authorization': "token #{GH_OAUTH_TOKEN}"} if GH_OAUTH_TOKEN 
       data = cached_request("https://api.github.com/repos/#{repo}", headers)
       unless data.empty?
         branch = data['default_branch'] || 'master'
