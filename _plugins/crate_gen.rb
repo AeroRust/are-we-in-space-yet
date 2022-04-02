@@ -152,11 +152,13 @@ module Jekyll
       if GITLAB_TOKEN
         # gilab only exposes some data if you are authenticated
         out['open_issues_count'] = data['open_issues_count']
+      else 
+        out['open_issues_count'] = "No Data"
       end
 
-      # %w(star_count ).each do |k|
-      #   out[k] = data[k]
-      # end
+      #TODO: find a way to get this from the API
+      out['contributor_count'] = "No Data"
+
       last_activity_at = data['last_activity_at'] #commit&.dig('commit', 'committer', 'date')
       if last_activity_at
           out['last_commit'] = Time.parse(last_activity_at)
