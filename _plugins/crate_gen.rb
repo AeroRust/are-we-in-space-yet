@@ -3,6 +3,7 @@ require 'json'
 require 'yaml'
 require 'net/http'
 require 'date'
+require 'cgi'
 
 module Jekyll
   class CrateGenerator < Generator
@@ -140,7 +141,7 @@ module Jekyll
     # Fetch stats and other interesting data from the GitHub API
     def get_gitlab_data(repo)
       headers = {'PRIVATE-TOKEN': "token #{GITLAB_TOKEN}"} if GITLAB_TOKEN
-      data = cached_request("https://gitlab.com/api/v4/projects/#{URI.encode(repo)}", headers)
+      data = cached_request("https://gitlab.com/api/v4/projects/#{CGI.escape(repo)}", headers)
 
       out = {}
       out['stargazers_count'] = data['star_count']
