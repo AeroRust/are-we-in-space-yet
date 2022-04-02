@@ -11,6 +11,7 @@ module Jekyll
     priority :highest
 
     GH_OAUTH_TOKEN = ENV['GITHUB_OAUTH_TOKEN']
+    GITLAB_TOKEN = ENV['GITLAB_TOKEN']
 
     def use_crate_cache?
       src_file = File.join(__dir__, "../_data/crates.yaml")
@@ -27,6 +28,8 @@ module Jekyll
 
     def generate_crate_data(crates)
       puts "WARNING: GITHUB_OAUTH_TOKEN not set - you may get rate-limited by GitHub" unless GH_OAUTH_TOKEN
+      puts "WARNING: GITLAB_TOKEN not set - you may get less data from GitLab" unless GITLAB_TOKEN
+
       crates.map do |crate|
         unless crate['name'] || crate['repository']['path']
           puts "ERROR: crate entry is invalid: #{crate}"
