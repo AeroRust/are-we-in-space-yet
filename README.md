@@ -21,6 +21,10 @@ bundle install
 # GitHub OAuth token avoids 403 rate limiting errors while generated crate data
 export GITHUB_OAUTH_TOKEN=<YOUR_GITHUB_TOKEN>
 
+# GitLab OAuth token Gives you access to more data, notably open issues count
+# see https://docs.gitlab.com/ee/api/#authentication
+export GITLAB_TOKEN=<YOUR_GITLAB_TOKEN>
+
 bundle exec jekyll serve
 ```
 
