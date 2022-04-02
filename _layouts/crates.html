@@ -17,10 +17,10 @@ layout: default
     <!------------- CRATE ------------>
     <div class="crate-card"> 
       <div class="crate-headline">
-          {%if crate.name %}{{crate.name}}{% else %}{{crate.github}}{% endif %}
+          {%if crate.name %}{{crate.name}}{% else %}{{crate.repository.path}}{% endif %}
           <span style="font-size: small; letter-spacing: 1px; vertical-align:middle;">
             [
-            {%if crate.repository %}<a href="{{crate.repository}}">repo</a> &middot;{% endif %}
+            {%if crate.repository %}<a href="{{crate.repository.url}}">repo</a> &middot;{% endif %}
             {%if crate.documentation %}<a href="{{crate.documentation}}">docs</a>{% endif %}
             ]
           </span>
@@ -30,9 +30,9 @@ layout: default
             <img height="35" src="https://raw.githubusercontent.com/rust-lang/crates.io/4cc3b0adf39d55fb166849875f6c764789787a38/public/cargo.png">
           </a>
           {% endif %}
-          {%if crate.github %}
-          <a href="https://github.com/{{crate.github}}" target="blank">
-            <img height="35" src="/images/github.png">
+          {%if crate.repository %}
+          <a href="{{crate.repository.url}}" target="blank">
+            <img height="35" src="/images/{{crate.repository.type}}.png">
           </a>
           {% endif %}
           {%if crate.wiki %}
@@ -59,9 +59,9 @@ layout: default
             <img src="https://img.shields.io/crates/dr/{{crate.name}}.svg?maxAge=2592000">
           </a>
         {% endif %}
-        {%if crate.github %}
-          <a href="https://github.com/{{crate.github}}" target="blank">
-            <img src="https://img.shields.io/github/stars/{{crate.github}}.svg?style=social&amp;label=Star&amp;maxAge=2592000">
+        {%if crate.repository.type == "github" %}
+          <a href="https://github.com/{{crate.repository.path}}" target="blank">
+            <img src="https://img.shields.io/github/stars/{{crate.repository.path}}.svg?style=social&amp;label=Star&amp;maxAge=2592000">
           </a>
         {% endif %}
       </div>
@@ -73,13 +73,13 @@ layout: default
           {%if crate.license %}
             <span class="crate-stat"><b>License</b>: {{crate.license}}</span>
           {% endif %}
-          {%if crate.github %}
+          {%if crate.repository %}
             <span class="crate-stat"><b>Last Commit</b>: {{crate.last_commit | date: "%d %b %Y"}}</span>
           {% endif %}
           {%if crate.name %}
             <span class="crate-stat"><b>Last Published</b>: {{crate.updated_at | date: "%d %b %Y"}}</span>
           {% endif %}
-          {%if crate.github %}
+          {%if crate.repository %}
             <span class="crate-stat"><b>Contributors</b>: {{crate.contributor_count}}</span>
             <span class="crate-stat"><b>Open Issues</b>: {{crate.open_issues_count}}</span>
           {% endif %}
