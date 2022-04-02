@@ -43,15 +43,14 @@ module Jekyll
           crate['documentation'] = "https://docs.rs/crate/#{crate['name']}" unless crate['documentation']
         end
 
-
         # Get data from the Git provider APIs
-        repo_type = crate['repository']['type']
-        repo = crate['repository']['path']
+        repo_type = crate["repository"]["type"]
+        repo = crate["repository"]["path"]
         repo_data = {}
-        if repo_type == "github":
+        if repo_type == "github"
           repo_data = get_github_data(repo)
           # crate['github'] = repo
-        elsif repo_type == "gitlab":
+        elsif repo_type == "gitlab"
           repo_data = get_gitlab_data(repo)
         else
           puts "WARNING: No repository specified for crate #{crate['name']}"
