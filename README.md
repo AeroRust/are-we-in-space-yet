@@ -30,6 +30,16 @@ bundle exec jekyll serve
 
 The site should be running on [localhost:4000](http://localhost:4000)
 
+## Adding new repository types
+
+To support a new repository type (like bitbucket for example), here are the steps:
+
+- add a 120x120px bitbucket.png file containing the bitbucket logo to the images folder
+- create a function similar to the existing two in the ruby plugin to query the bitbucker api for data and put it into values that the other APIs are using (like stargazers_count instead of stars_count, this is tech debt to some degree so this may need to be standardized/cleaned up in future)
+- call that function in the if-else chain for detecting types, also set the URL
+- add any custom bitbucket-only stuff in the template for generating the entries
+
+
 ## Generating crate data
 
 `_data/crates.yaml` contains a manually curated list of crates,
