@@ -3,6 +3,7 @@ require 'json'
 require 'yaml'
 require 'net/http'
 require 'date'
+require 'cgi'
 
 module Jekyll
   class CrateGenerator < Generator
@@ -10,6 +11,7 @@ module Jekyll
     priority :highest
 
     GH_OAUTH_TOKEN = ENV['GITHUB_OAUTH_TOKEN']
+    GITLAB_TOKEN = ENV['GITLAB_TOKEN']
 
     def use_crate_cache?
       src_file = File.join(__dir__, "../_data/crates.yaml")
@@ -26,13 +28,15 @@ module Jekyll
 
     def generate_crate_data(crates)
       puts "WARNING: GITHUB_OAUTH_TOKEN not set - you may get rate-limited by GitHub" unless GH_OAUTH_TOKEN
+      puts "WARNING: GITLAB_TOKEN not set - you may get less data from GitLab" unless GITLAB_TOKEN
+
       crates.map do |crate|
-        unless crate['name'] || crate['repository']
+        unless crate['name'] || crate['repository']['path']
           puts "ERROR: crate entry is invalid: #{crate}"
           exit 1
         end
 
-        puts "Processing #{crate['name'] || crate['repository']}"
+        puts "Processing #{crate['name'] || crate['repository']['path']}"
 
         # Get data from the Crates.io API
         if crate['name']
@@ -42,17 +46,21 @@ module Jekyll
           crate['documentation'] = "https://docs.rs/crate/#{crate['name']}" unless crate['documentation']
         end
 
-
-        # Get data from the GitHub API
-        matches = crate['repository']&.match(/github.com\/([^\.\/]+\/[^\.\/]+)/)
-        repo = matches[1] if matches
-        if repo
-          repo_data = get_repo_data(repo)
-          crate = repo_data.merge(crate)
-          crate['github'] = repo
+        # Get data from the Git provider APIs
+        repo_type = crate["repository"]["type"]
+        repo = crate["repository"]["path"]
+        repo_data = {}
+        if repo_type == "github"
+          repo_data = get_github_data(repo)
+          crate['repository']['url'] = "https://github.com/" + repo
+        elsif repo_type == "gitlab"
+          repo_data = get_gitlab_data(repo)
+          crate['repository']['url'] = "https://gitlab.com/" + repo
         else
-          puts "WARNING: No GitHub repository specified for crate #{crate['name']}"
+          puts "WARNING: No repository specified for crate #{crate['name']}"
         end
+        crate = repo_data.merge(crate)
+
 
         crate['score'] = score(crate)
         crate
@@ -105,6 +113,8 @@ module Jekyll
         return {}
       end
 
+      headers["User-Agent"] = "areweinspaceyet crate listing https://github.com/AeroRust/are-we-in-space-yet"
+
       dir = url.sub(/^https?:\/\//, File.join(__dir__, "../_tmp/"))
       path = File.join(dir, "index.json")
       FileUtils.mkdir_p(dir)
@@ -130,10 +140,40 @@ module Jekyll
       end
       JSON.parse(File.read(path))
     end
+    
+    # Fetch stats and other interesting data from the GitHub API
+    def get_gitlab_data(repo)
+      headers = {}
+      headers = {'PRIVATE-TOKEN': "#{GITLAB_TOKEN}"} if GITLAB_TOKEN
+      data = cached_request("https://gitlab.com/api/v4/projects/#{CGI.escape(repo)}", headers)
+
+      out = {}
+      out['stargazers_count'] = data['star_count']
+
+      if GITLAB_TOKEN
+        # gilab only exposes some data if you are authenticated
+        out['open_issues_count'] = data['open_issues_count']
+      else 
+        out['open_issues_count'] = "No Data"
+      end
+
+      #TODO: find a way to get this from the API
+      out['contributor_count'] = "No Data"
+
+      last_activity_at = data['last_activity_at'] #commit&.dig('commit', 'committer', 'date')
+      if last_activity_at
+          out['last_commit'] = Time.parse(last_activity_at)
+      end
+      # out['contributor_count'] = contributors&.length
+      out.delete_if { |k,v| v.nil? }
+    end
+
+
 
     # Fetch stats and other interesting data from the GitHub API
-    def get_repo_data(repo)
-      headers = {'Authorization': "token #{GH_OAUTH_TOKEN}"} if GH_OAUTH_TOKEN
+    def get_github_data(repo)
+      headers = {}
+      headers = {'Authorization': "token #{GH_OAUTH_TOKEN}"} if GH_OAUTH_TOKEN 
       data = cached_request("https://api.github.com/repos/#{repo}", headers)
       unless data.empty?
         branch = data['default_branch'] || 'master'

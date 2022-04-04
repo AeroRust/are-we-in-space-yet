@@ -10,88 +10,102 @@
 
 # <----------------- Astrodynamics -------------------->
 - name: nyx-space
-  repository: https://github.com/ChristopherRabotin/nyx
   description: Nyx is a high fidelity, fast, reliable and validated astrodynamical toolkit library written in Rust.<br /> <br />The target audience is researchers and astrodynamics engineers. The rationale for using Rust is to allow for very fast computations, guaranteed thread safety, and portability to all platforms supported by Rust.
+  repository:
+    type: gitlab
+    path: nyx-space/nyx
   wiki: Nyx
   topics: ["astrodynamics"]
 
 
 # <---------------- Units of measure -------------------->
 - name: uom
-  repository: https://github.com/iliekturtles/uom
   description: Units of measurement is a crate that does automatic type-safe zero-cost <a href="https://en.wikipedia.org/wiki/Dimensional_analysis">dimensional analysis</a>.
-  github: iliekturtles/uom
+  repository:
+    type: github
+    path: iliekturtles/uom
   type: no_std
   topics: ["units-of-measure"]
 
 
 # <----------------------- SDK ------------------------->
 - name: arsdk-rs
-  repository: https://github.com/AeroRust/arsdk-rs
   description: SDK (Software development kit) for <a href="https://parrot.com">parrot</a> drones
-  github: AeroRust/arsdk-rs
+  repository:
+    type: github
+    path: AeroRust/arsdk-rs
   type: SDK
   topics: ["sdk", "protocol"]
 
 - name: mav-sdk
-  repository: https://github.com/AeroRust/mav
   description: Simple API (gRPC) for managing one or more vehicles using the <a href="https://mavlink.io/">MAVLink protocol</a>, providing programmatic access to vehicle information and telemetry, and control over missions, movement and other operations.
-  github: AeroRust/mav
+  repository:
+    type: github
+    path: AeroRust/mav
   type: SDK
   topics: ["sdk", "protocol"]
 
 # <------------------ Error correction ------------------>
 - name: labrador-ldpc
-  repository: https://github.com/adamgreig/labrador-ldpc
   description: A crate for encoding and decoding a selection of low-density parity check (LDPC) error correcting codes. Currently, the CCSDS 231.1-O-1 TC codes at rate r=1/2 with dimensions k=128, k=256, and k=512, and the CCSDS 131.0-B-2 TM codes at rates r=1/2, r=2/3, and r=4/5 with dimensions k=1024 and k=4096 are supported.
-  github: adamgreig/labrador-ldpc
+  repository:
+    type: github
+    path: adamgreig/labrador-ldpc
   type: no_std only
   topics: ["error-correction"]
 
 
 # <------------------- Protocol ------------------------>
 - name: adsb_deku
-  repository: https://github.com/wcampbell0x2a/adsb_deku
   description: Decoder for <a href="https://en.wikipedia.org/wiki/Automatic_Dependent_Surveillance%E2%80%93Broadcast">ADS-B</a> Downlink Format protocol. Features tui applications for the display of the decoded aeroplanes location data.
-  github: wcampbell0x2a/adsb_deku
+  repository:
+    type: github
+    path: wcampbell0x2a/adsb_deku
   topics: ["protocol"]
 
 - name: bp7
-  repository: https://github.com/dtn7/bp7-rs
   description: Bundle Protocol 7 encoding/decoding library.<br /><br />A portable Work-In-Progress <a href="https://github.com/dtn7/bp7-rs">implementation</a> of the upcoming delay-tolerant networking <a href="https://tools.ietf.org/html/draft-ietf-dtn-bpbis-24">Bundle Protocol</a>. Support for DTN (Delay-Tolerant Network) as well as IPN (InterPlanetary Network) addressing, custom canonical blocks and restricted environments such as wasm.
-  github: dtn7/bp7-rs
+  repository:
+    type: github
+    path: dtn7/bp7-rs
   topics: ["protocol"]
 
 - name: dtn7
-  repository: https://github.com/dtn7/dtn7-rs
   description: Delay-tolerant Networking Daemon and CLI tools.<br /><br />A Work-In-Progress <a href="https://github.com/dtn7/dtn7-rs">implementation</a> of the upcoming delay-tolerant networking <a href="https://tools.ietf.org/html/draft-ietf-dtn-bpbis-24">standard</a>. This crate uses BP7 to provide a dtn daemon (with routing, convergence layers, etc) and command line tools.
-  github: dtn7/dtn7-rs
+  repository:
+    type: github
+    path: dtn7/dtn7-rs
   topics: ["protocol"]
 
 - name: ccsds_primary_header
-  repository: https://github.com/nsmryan/ccsds_primary_header
   description: This crate contains an implementation of the CCSDS standard called Space Packet Protocol, which defines a packet header called the CCSDS Primary Header.
-  github: nsmryan/ccsds_primary_header
+  repository:
+    type: github
+    path: nsmryan/ccsds_primary_header
   topics: ["protocol"]
 
 - name: ccsds_spacepacket
   description: A memory-safe implementation of the Primary Header from the CCSDS Space Packet Protocol based on KubOS's implementation.
-  github: KubOS-Preservation-Group/ccsds-spacepacket
+  repository:
+    type: github
+    path: KubOS-Preservation-Group/ccsds-spacepacket
   topics: ["protocol"]
 
 
 # <------------------------- Parsers ------------------------>
 - name: YANP
-  repository: https://github.com/hargoniX/yanp
   description: YANP - Yet Another NMEA Parser.<br /><br />A no_std Rust NMEA 0183 sentence parser.<br />Currently supported Sentences -> BOD, BWC, GBS, GGA, GLL, GSA, GNS, GSV, HDT, RMA, RMB, RMC, STN, VBW, VTG, WPL.
-  github: hargoniX/yanp
+  repository:
+    type: github
+    path: hargoniX/yanp
   type: parser + no_std
   topics: ["parsers"] 
 
 - name: NMEA
-  repository: https://github.com/AeroRust/nmea
   description: NMEA 0183 sentence parser for Rust. Currently only GGA, GSV, GSA, VTG and RMC sentences are supported.
-  github: AeroRust/nmea
+  repository:
+    type: github
+    path: AeroRust/nmea
   wiki: NMEA_0183
   type: parser + no_std
   topics: ["parsers"]
